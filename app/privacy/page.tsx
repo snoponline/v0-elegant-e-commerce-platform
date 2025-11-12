@@ -1,12 +1,11 @@
 "use client"
-
 import Link from "next/link"
 import { ChevronRight } from "lucide-react"
 
 export default function PrivacyPolicy() {
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
+      {/* Page Header */}
       <div className="bg-gradient-to-r from-yellow-400 to-yellow-500 text-foreground py-8 px-4">
         <div className="max-w-4xl mx-auto">
           <Link href="/" className="flex items-center gap-2 text-sm mb-4 opacity-80 hover:opacity-100">

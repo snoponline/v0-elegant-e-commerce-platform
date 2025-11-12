@@ -84,7 +84,7 @@ export default function ShopPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <div className="bg-white border-b border-border sticky top-16 z-40">
+      <div className="bg-white border-b border-border pt-4 z-40">
         <div className="max-w-7xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between gap-4">
             <h1 className="text-2xl font-bold">Shop Products</h1>

@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Heart, Search, ShoppingCart, Menu, X, Zap, Gift, Smartphone, Shirt, Sparkles } from "lucide-react"
+import { Heart, ShoppingCart, Zap, Gift, Smartphone, Shirt, Sparkles } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { ChatWidget } from "@/components/chat-widget"
@@ -117,123 +117,37 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="sticky top-0 z-50 bg-white border-b border-border shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <div className="flex items-center gap-8">
-              <Link href="/" className="flex items-center gap-2">
-                <Image
-                  src="https://i.postimg.cc/Y9KZwRzs/Gemini-Generated-Image-mme3rsmme3rsmme3.png"
-                  alt="Snop"
-                  width={40}
-                  height={40}
-                  className="rounded"
-                />
-                <span className="text-xl font-bold text-primary">snop.co.za</span>
-              </Link>
-              <nav className="hidden md:flex gap-6">
-                <Link href="/shop" className="text-sm font-medium hover:text-primary transition">
-                  Shop
-                </Link>
-                <Link href="/deals" className="text-sm font-medium hover:text-primary transition">
-                  Flash Deals
-                </Link>
-                <Link href="/about" className="text-sm font-medium hover:text-primary transition">
-                  About
-                </Link>
-              </nav>
-            </div>
-
-            <div className="hidden md:flex flex-1 mx-8">
-              <div className="relative w-full">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                <input
-                  type="text"
-                  placeholder="Search products..."
-                  className="w-full pl-10 pr-4 py-2 bg-muted rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary"
-                />
-              </div>
-            </div>
-
-            <div className="flex items-center gap-4">
-              <button className="hidden sm:flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg font-medium hover:opacity-90 transition">
-                Sign In
-              </button>
-              <button
-                className="relative p-2 hover:bg-muted rounded-lg transition"
-                onClick={() => setWishlistCount((w) => w + 1)}
-              >
-                <Heart className="w-5 h-5" />
-                {wishlistCount > 0 && (
-                  <span className="absolute top-1 right-1 w-4 h-4 bg-accent text-accent-foreground text-xs rounded-full flex items-center justify-center">
-                    {wishlistCount}
-                  </span>
-                )}
-              </button>
-              <button
-                className="relative p-2 hover:bg-muted rounded-lg transition"
-                onClick={() => setCartCount((c) => c + 1)}
-              >
-                <ShoppingCart className="w-5 h-5" />
-                {cartCount > 0 && (
-                  <span className="absolute top-1 right-1 w-4 h-4 bg-accent text-accent-foreground text-xs rounded-full flex items-center justify-center">
-                    {cartCount}
-                  </span>
-                )}
-              </button>
-              <button
-                className="md:hidden p-2 hover:bg-muted rounded-lg transition"
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              >
-                {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-              </button>
-            </div>
-          </div>
-        </div>
-
-        {/* Mobile Menu */}
-        {mobileMenuOpen && (
-          <div className="md:hidden border-t border-border bg-white">
-            <nav className="flex flex-col p-4 gap-3">
-              <Link href="/shop" className="text-sm font-medium hover:text-primary transition py-2">
-                Shop
-              </Link>
-              <Link href="/deals" className="text-sm font-medium hover:text-primary transition py-2">
-                Flash Deals
-              </Link>
-              <Link href="/about" className="text-sm font-medium hover:text-primary transition py-2">
-                About
-              </Link>
-            </nav>
-          </div>
-        )}
-      </header>
-
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-primary via-secondary to-primary py-12 md:py-20 px-4">
-        <div className="max-w-7xl mx-auto">
+      <section className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-white py-16">
+        <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div className="space-y-6">
-              <h1 className="text-4xl md:text-5xl font-bold text-foreground leading-tight">Discover Amazing Deals</h1>
-              <p className="text-lg text-foreground/80">
-                Shop premium products at unbeatable prices. Get exclusive discounts and earn rewards with every
-                purchase.
+            <div>
+              <h1 className="text-4xl md:text-5xl font-bold mb-4">Welcome to Snop.co.za</h1>
+              <p className="text-lg mb-6">
+                Shop amazing products at unbeatable prices with fast delivery across South Africa
               </p>
               <div className="flex gap-4">
-                <button className="px-8 py-3 bg-foreground text-primary font-bold rounded-lg hover:shadow-lg transition">
+                <Link
+                  href="/shop"
+                  className="bg-white text-yellow-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition"
+                >
                   Shop Now
-                </button>
-                <button className="px-8 py-3 border-2 border-foreground text-foreground font-bold rounded-lg hover:bg-foreground/10 transition">
-                  Learn More
-                </button>
+                </Link>
+                <Link
+                  href="/deals"
+                  className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-yellow-600 transition"
+                >
+                  View Deals
+                </Link>
               </div>
             </div>
-            <div className="relative h-80 md:h-96 rounded-xl overflow-hidden">
+            <div className="hidden md:block">
               <Image
                 src="https://i.postimg.cc/Y9KZwRzs/Gemini-Generated-Image-mme3rsmme3rsmme3.png"
-                alt="Hero product showcase"
-                fill
-                className="object-cover hover:scale-105 transition duration-500"
+                alt="Hero"
+                width={400}
+                height={400}
+                className="rounded-lg"
               />
             </div>
           </div>
@@ -404,7 +318,7 @@ export default function Home() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/new" className="hover:opacity-100 transition">
+                  <Link href="/new-arrivals" className="hover:opacity-100 transition">
                     New Arrivals
                   </Link>
                 </li>
@@ -414,7 +328,7 @@ export default function Home() {
               <h3 className="font-bold text-lg mb-4">Support</h3>
               <ul className="space-y-2 text-sm opacity-80">
                 <li>
-                  <Link href="/help" className="hover:opacity-100 transition">
+                  <Link href="/help-center" className="hover:opacity-100 transition">
                     Help Center
                   </Link>
                 </li>

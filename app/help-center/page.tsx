@@ -1,7 +1,6 @@
 "use client"
-
 import Link from "next/link"
-import { ChevronRight, Search, ShoppingCart, Package, RotateCcw, User, Wrench, Lock } from "lucide-react"
+import { ChevronRight, ShoppingCart, Package, RotateCcw, User, Wrench, Lock } from "lucide-react"
 import { Input } from "@/components/ui/input"
 
 export default function HelpCenter() {
@@ -47,29 +46,7 @@ export default function HelpCenter() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <div className="bg-gradient-to-r from-yellow-400 to-yellow-500 text-foreground py-8 px-4">
-        <div className="max-w-4xl mx-auto">
-          <Link href="/" className="flex items-center gap-2 text-sm mb-4 opacity-80 hover:opacity-100">
-            <span>Home</span>
-            <ChevronRight className="w-4 h-4" />
-            <span>Help Center</span>
-          </Link>
-          <h1 className="text-4xl font-bold mb-2">Help Center</h1>
-          <p className="text-sm opacity-80 mb-6">Your Resource for a Smooth Snop Shopping Experience</p>
 
-          {/* Search Bar */}
-          <div className="relative">
-            <Search className="absolute left-3 top-3 w-5 h-5 text-foreground/50" />
-            <Input
-              type="text"
-              placeholder="Search for help... try 'tracking', 'size', or 'payment'"
-              className="pl-10 bg-foreground/10 border-foreground/30 text-foreground placeholder:text-foreground/50"
-            />
-          </div>
-        </div>
-      </div>
-
-      {/* Content */}
       <main className="max-w-4xl mx-auto py-12 px-4">
         <div className="mb-8">
           <p className="text-lg text-foreground/80 mb-4">
@@ -79,6 +56,10 @@ export default function HelpCenter() {
           <p className="text-sm text-foreground/60 mb-8">
             <strong>Tip:</strong> Try searching for keywords like "tracking," "size," or "payment."
           </p>
+          {/* Search Input */}
+          <div className="mb-6">
+            <Input type="text" placeholder="Search for help..." className="w-full" />
+          </div>
         </div>
 
         {/* Categories Grid */}
@@ -94,13 +75,14 @@ export default function HelpCenter() {
                   className="group bg-foreground/5 border border-foreground/10 rounded-lg p-6 hover:bg-yellow-400/10 hover:border-yellow-400/30 transition-all"
                 >
                   <div className="flex items-start gap-4">
-                    <div className="text-2xl">{category.title.split(" ")[0]}</div>
+                    <Icon className="text-2xl" />
                     <div className="flex-1">
                       <h3 className="font-semibold text-lg mb-1 group-hover:text-yellow-400 transition">
                         {category.title.substring(2)}
                       </h3>
                       <p className="text-sm text-foreground/60">{category.description}</p>
                     </div>
+                    <ChevronRight className="text-2xl opacity-0 group-hover:opacity-100 transition" />
                   </div>
                 </Link>
               )

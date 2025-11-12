@@ -35,8 +35,8 @@ export function Header({ cartCount = 0, wishlistCount = 0 }: HeaderProps) {
               <Link href="/deals" className="text-sm font-medium hover:text-primary transition">
                 Flash Deals
               </Link>
-              <Link href="/about" className="text-sm font-medium hover:text-primary transition">
-                About
+              <Link href="/new-arrivals" className="text-sm font-medium hover:text-primary transition">
+                New Arrivals
               </Link>
             </nav>
           </div>
@@ -91,8 +91,8 @@ export function Header({ cartCount = 0, wishlistCount = 0 }: HeaderProps) {
               <Link href="/deals" className="text-sm font-medium hover:text-primary transition py-2">
                 Flash Deals
               </Link>
-              <Link href="/about" className="text-sm font-medium hover:text-primary transition py-2">
-                About
+              <Link href="/new-arrivals" className="text-sm font-medium hover:text-primary transition py-2">
+                New Arrivals
               </Link>
             </nav>
           </div>
@@ -101,3 +101,5 @@ export function Header({ cartCount = 0, wishlistCount = 0 }: HeaderProps) {
     </header>
   )
 }
+
+export default Header

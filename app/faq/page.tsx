@@ -1,14 +1,15 @@
 "use client"
 
+import Header from "@/components/header"
 import Link from "next/link"
-import { ChevronRight, ChevronDown } from "lucide-react"
+import { ChevronDown } from "lucide-react"
 import { useState } from "react"
 
 interface FAQItem {
   id: string
+  category: string
   question: string
   answer: string
-  category: string
 }
 
 const faqItems: FAQItem[] = [
@@ -120,33 +121,30 @@ const faqItems: FAQItem[] = [
 ]
 
 export default function FAQ() {
-  const [expandedId, setExpandedId] = useState<string | null>(null)
+  const [expandedId, setExpandedId] = useState<string | null>("1")
+  const [selectedCategory, setSelectedCategory] = useState<string>("all")
   const categories = Array.from(new Set(faqItems.map((item) => item.category)))
 
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <div className="bg-gradient-to-r from-yellow-400 to-yellow-500 text-foreground py-8 px-4">
-        <div className="max-w-4xl mx-auto">
-          <Link href="/" className="flex items-center gap-2 text-sm mb-4 opacity-80 hover:opacity-100">
-            <span>Home</span>
-            <ChevronRight className="w-4 h-4" />
-            <span>FAQ</span>
-          </Link>
-          <h1 className="text-4xl font-bold mb-2">Frequently Asked Questions</h1>
-          <p className="text-sm opacity-80">Find answers to common questions about Snop</p>
-        </div>
-      </div>
+      <Header />
 
-      {/* Content */}
       <main className="max-w-4xl mx-auto py-12 px-4">
+        <div className="mb-8">
+          <h1 className="text-4xl font-bold mb-4">Frequently Asked Questions</h1>
+          <p className="text-lg text-foreground/80">
+            Find answers to common questions about ordering, shipping, returns, and more.
+          </p>
+        </div>
+
         {/* FAQ by Category */}
         {categories.map((category) => (
           <section key={category} className="mb-12">
             <h2 className="text-2xl font-bold mb-6 capitalize">{category}</h2>
             <div className="space-y-4">
               {faqItems
-                .filter((item) => item.category === category)
+                .filter((item) => selectedCategory === "all" || item.category === selectedCategory)
                 .map((item) => (
                   <div key={item.id} className="border border-foreground/10 rounded-lg overflow-hidden">
                     <button

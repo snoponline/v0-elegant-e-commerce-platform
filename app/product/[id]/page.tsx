@@ -3,7 +3,6 @@
 import { useState } from "react"
 import { Heart, ShoppingCart, Check, Truck, Shield, RotateCcw, Star } from "lucide-react"
 import Image from "next/image"
-import { Header } from "@/components/header"
 import { useCart } from "@/lib/cart-context"
 import { useRouter } from "next/navigation"
 
@@ -93,7 +92,6 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
 
   return (
     <>
-      <Header />
       <div className="bg-background min-h-screen">
         <div className="max-w-7xl mx-auto px-4 py-8">
           {/* Breadcrumb */}
